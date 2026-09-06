@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot.mapper.MenuMapper">
+
+    <!-- 显式别名，保证任何配置下都能映射到实体字段 -->
+    <sql id="menuColumns">
+        m.menu_id    AS menuId,
+        m.menu_name  AS menuName,
+        m.parent_id  AS parentId,
+        m.order_num  AS orderNum,
+        m.path,
+        m.component,
+        m.query,
+        m.is_frame   AS isFrame,
+        m.is_cache   AS isCache,
+        m.menu_type  AS menuType,
+        m.visible,
+        m.status,
+        m.perms,
+        m.icon,
+        m.create_by  AS createBy,
+        m.create_time AS createTime,
+        m.update_by  AS updateBy,
+        m.update_time AS updateTime,
+        m.remark
+    </sql>
+
+    <!-- 全量菜单（含按钮），菜单管理 / 角色授权树使用 -->
+    <select id="selectMenuList" resultType="com.example.springboot.entity.Menu">
+        SELECT
+        <include refid="menuColumns"/>
+        FROM sys_menu m
+        ORDER BY m.parent_id, m.order_num, m.menu_id
+    </select>
+
+    <!-- 当前用户的可见菜单（M/C，状态正常），用于注册前端动态路由 -->
+    <select id="selectMenusByUserId" resultType="com.example.springboot.entity.Menu">
+        SELECT DISTINCT
+        <include refid="menuColumns"/>
+        FROM sys_menu m
+        INNER JOIN sys_role_menu rm ON rm.menu_id = m.menu_id
+        INNER JOIN sys_user_role ur ON ur.role_id = rm.role_id
+        WHERE ur.user_id = #{userId}
+          AND m.status = '0'
+          AND m.menu_type IN ('M', 'C')
+        ORDER BY m.parent_id, m.order_num, m.menu_id
+    </select>
+
+    <!-- 统计子菜单数量（删除前置校验） -->
+    <select id="countChildren" resultType="long">
+        SELECT COUNT(*) FROM sys_menu WHERE parent_id = #{parentId}
+    </select>
+
+    <!-- 删除菜单时清理角色-菜单关联 -->
+    <delete id="deleteRoleMenuByMenuId">
+        DELETE FROM sys_role_menu WHERE menu_id = #{menuId}
+    </delete>
+
+</mapper>

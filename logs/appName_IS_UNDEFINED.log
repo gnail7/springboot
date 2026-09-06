@@ -1,0 +1,188 @@
+2026-09-06 01:52:18.194 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 01:52:18.194 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 01:52:18.195 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 01:52:18.195 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 01:52:18.195 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 01:52:18.261 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 67ms
+2026-09-06 01:52:18.261 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:02:50.442 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:02:50.443 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/users/page?pageNum=1&pageSize=10
+2026-09-06 02:02:50.443 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:02:50.445 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:02:50.445 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: UserController.page()
+2026-09-06 02:02:50.506 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/users/page -> 状态码 200，耗时 64ms
+2026-09-06 02:02:50.506 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:02:53.347 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:02:53.348 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/role/page?pageNum=1&pageSize=10
+2026-09-06 02:02:53.348 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:02:53.348 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:02:53.348 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: RoleController.page()
+2026-09-06 02:02:53.359 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/role/page -> 状态码 200，耗时 12ms
+2026-09-06 02:02:53.360 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:02:56.671 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:02:56.671 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/users/page?pageNum=1&pageSize=10
+2026-09-06 02:02:56.671 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:02:56.672 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:02:56.672 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: UserController.page()
+2026-09-06 02:02:56.683 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/users/page -> 状态码 200，耗时 12ms
+2026-09-06 02:02:56.684 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:39.230 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:39.234 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/users/page?pageNum=1&pageSize=10
+2026-09-06 02:09:39.235 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:39.238 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:39.238 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: UserController.page()
+2026-09-06 02:09:39.269 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/users/page -> 状态码 200，耗时 39ms
+2026-09-06 02:09:39.269 [http-nio-8080-exec-2] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:39.599 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:39.599 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/role/page?pageNum=1&pageSize=10
+2026-09-06 02:09:39.600 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:39.600 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:39.600 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: RoleController.page()
+2026-09-06 02:09:39.604 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/role/page -> 状态码 200，耗时 5ms
+2026-09-06 02:09:39.605 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:46.220 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:46.220 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/users/page?pageNum=1&pageSize=10
+2026-09-06 02:09:46.220 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:46.220 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:46.220 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: UserController.page()
+2026-09-06 02:09:46.228 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/users/page -> 状态码 200，耗时 8ms
+2026-09-06 02:09:46.228 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:47.716 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:47.716 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/role/page?pageNum=1&pageSize=10
+2026-09-06 02:09:47.716 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:47.717 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:47.717 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: RoleController.page()
+2026-09-06 02:09:47.724 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/role/page -> 状态码 200，耗时 9ms
+2026-09-06 02:09:47.724 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:48.236 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:48.236 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/users/page?pageNum=1&pageSize=10
+2026-09-06 02:09:48.236 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:48.237 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:48.237 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: UserController.page()
+2026-09-06 02:09:48.244 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/users/page -> 状态码 200，耗时 8ms
+2026-09-06 02:09:48.244 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:09:48.662 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:09:48.662 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/role/page?pageNum=1&pageSize=10
+2026-09-06 02:09:48.663 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:09:48.663 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:09:48.663 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: RoleController.page()
+2026-09-06 02:09:48.669 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/role/page -> 状态码 200，耗时 7ms
+2026-09-06 02:09:48.669 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:10:15.902 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:10:15.904 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: POST /api/auth/login
+2026-09-06 02:10:15.904 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:10:15.904 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:10:15.904 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.login()
+2026-09-06 02:10:15.914 [http-nio-8080-exec-9] WARN  c.e.springboot.exception.GlobalExceptionHandler - 业务异常: code=401, message=用户名或密码错误
+2026-09-06 02:10:15.917 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: POST /api/auth/login -> 状态码 200，耗时 15ms
+2026-09-06 02:10:15.917 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:10:22.333 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:10:22.334 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: POST /api/auth/login
+2026-09-06 02:10:22.335 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:10:22.335 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:10:22.335 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.login()
+2026-09-06 02:10:22.459 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: POST /api/auth/login -> 状态码 200，耗时 126ms
+2026-09-06 02:10:22.459 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:11:56.453 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:11:56.455 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:11:56.455 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:11:56.455 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:11:56.455 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:11:56.457 [http-nio-8080-exec-4] WARN  c.e.springboot.exception.GlobalExceptionHandler - 业务异常: code=401, message=未登录
+2026-09-06 02:11:56.459 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 6ms
+2026-09-06 02:11:56.459 [http-nio-8080-exec-4] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:12:03.231 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:12:03.231 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:12:03.232 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:12:03.232 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:12:03.232 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:12:03.232 [http-nio-8080-exec-5] WARN  c.e.springboot.exception.GlobalExceptionHandler - 业务异常: code=401, message=未登录
+2026-09-06 02:12:03.233 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 2ms
+2026-09-06 02:12:03.233 [http-nio-8080-exec-5] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:12:25.205 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:12:25.206 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:12:25.206 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:12:25.206 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:12:25.206 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:12:25.207 [http-nio-8080-exec-6] WARN  c.e.springboot.exception.GlobalExceptionHandler - 业务异常: code=401, message=未登录
+2026-09-06 02:12:25.208 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 3ms
+2026-09-06 02:12:25.208 [http-nio-8080-exec-6] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:12:32.504 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:12:32.504 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:12:32.504 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:12:32.504 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:12:32.504 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:12:32.505 [http-nio-8080-exec-7] WARN  c.e.springboot.exception.GlobalExceptionHandler - 业务异常: code=401, message=未登录
+2026-09-06 02:12:32.505 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 1ms
+2026-09-06 02:12:32.506 [http-nio-8080-exec-7] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:12:47.591 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:12:47.592 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:12:47.592 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:12:47.592 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:12:47.592 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:12:47.617 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 26ms
+2026-09-06 02:12:47.617 [http-nio-8080-exec-8] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:12:47.864 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:12:47.864 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/role/page?pageNum=1&pageSize=10
+2026-09-06 02:12:47.864 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:12:47.865 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: pageNum=1 pageSize=10
+2026-09-06 02:12:47.865 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: RoleController.page()
+2026-09-06 02:12:47.877 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/role/page -> 状态码 200，耗时 13ms
+2026-09-06 02:12:47.877 [http-nio-8080-exec-9] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:13:02.046 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:13:02.048 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:13:02.048 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:13:02.048 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:13:02.048 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:13:02.074 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 28ms
+2026-09-06 02:13:02.075 [http-nio-8080-exec-10] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:23:50.591 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求开始 ==========
+2026-09-06 02:23:50.595 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 请求: GET /api/auth/me
+2026-09-06 02:23:50.595 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 来源IP: 0:0:0:0:0:0:0:1
+2026-09-06 02:23:50.596 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 请求参数: (无查询参数，POST body 请见 Service 日志)
+2026-09-06 02:23:50.596 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 处理方法: AuthController.me()
+2026-09-06 02:23:50.635 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - 接口正常结束: GET /api/auth/me -> 状态码 200，耗时 44ms
+2026-09-06 02:23:50.635 [http-nio-8080-exec-3] INFO  com.example.springboot.config.ApiLogInterceptor - ========== 接口请求结束 ==========
+2026-09-06 02:23:50.671 [http-nio-8080-exec-5] ERROR c.e.springboot.exception.GlobalExceptionHandler - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/menu/userMenus for request '/api/menu/userMenus'.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:527)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:50)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1801)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-09-06 02:45:33.338 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-06 02:45:33.352 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-09-06 02:45:33.364 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-09-06 02:45:33.375 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
