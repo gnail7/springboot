@@ -6,6 +6,7 @@ import com.example.springboot.service.RoleService;
 import com.example.springboot.utils.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ public class RoleController {
     }
 
     @Operation(summary = "分页查询角色")
+    @PreAuthorize("@permissionService.hasPerm('system:role:list')")
     @GetMapping("/page")
     public PageResult<Role> page(@RequestParam(required = false) String roleName,
                                  @RequestParam(required = false) String status,
@@ -42,24 +44,28 @@ public class RoleController {
     }
 
     @Operation(summary = "全部启用角色（下拉框）")
+    @PreAuthorize("@permissionService.hasPerm('system:role:list')")
     @GetMapping("/list")
     public Result<List<Role>> list() {
         return Result.success(roleService.listAll());
     }
 
     @Operation(summary = "角色详情")
+    @PreAuthorize("@permissionService.hasPerm('system:role:list')")
     @GetMapping("/{roleId}")
     public Result<Role> get(@PathVariable Long roleId) {
         return Result.success(roleService.getById(roleId));
     }
 
     @Operation(summary = "新增角色")
+    @PreAuthorize("@permissionService.hasPerm('system:role:add')")
     @PostMapping
     public Result<Long> create(@RequestBody Role role) {
         return Result.success(roleService.create(role));
     }
 
     @Operation(summary = "修改角色")
+    @PreAuthorize("@permissionService.hasPerm('system:role:edit')")
     @PutMapping("/{roleId}")
     public Result<Void> update(@PathVariable Long roleId, @RequestBody Role role) {
         role.setRoleId(roleId);
@@ -68,6 +74,7 @@ public class RoleController {
     }
 
     @Operation(summary = "删除角色（逻辑删除，并清理用户/菜单/部门关联）")
+    @PreAuthorize("@permissionService.hasPerm('system:role:remove')")
     @DeleteMapping("/{roleId}")
     public Result<Void> delete(@PathVariable Long roleId) {
         roleService.delete(roleId);
@@ -77,12 +84,14 @@ public class RoleController {
     /* ---------- 角色-菜单权限 sys_role_menu ---------- */
 
     @Operation(summary = "查询角色已分配的菜单 id")
+    @PreAuthorize("@permissionService.hasPerm('system:role:list')")
     @GetMapping("/{roleId}/menuIds")
     public Result<List<Long>> menuIds(@PathVariable Long roleId) {
         return Result.success(roleService.getMenuIds(roleId));
     }
 
     @Operation(summary = "保存角色的菜单权限（覆盖式）")
+    @PreAuthorize("@permissionService.hasPerm('system:role:assign')")
     @PutMapping("/{roleId}/menus")
     public Result<Void> assignMenus(@PathVariable Long roleId,
                                     @RequestBody List<Long> menuIds) {
@@ -93,12 +102,14 @@ public class RoleController {
     /* ---------- 角色-部门数据权限 sys_role_dept ---------- */
 
     @Operation(summary = "查询角色已分配的部门 id")
+    @PreAuthorize("@permissionService.hasPerm('system:role:list')")
     @GetMapping("/{roleId}/deptIds")
     public Result<List<Long>> deptIds(@PathVariable Long roleId) {
         return Result.success(roleService.getDeptIds(roleId));
     }
 
     @Operation(summary = "保存角色的数据权限部门（覆盖式）")
+    @PreAuthorize("@permissionService.hasPerm('system:role:assign')")
     @PutMapping("/{roleId}/depts")
     public Result<Void> assignDepts(@PathVariable Long roleId,
                                     @RequestBody List<Long> deptIds) {

@@ -50,6 +50,18 @@
       <version>2.8.13</version>
     </dependency>
 
+    <!--  Redis  -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <!-- 方法级权限校验 @PreAuthorize（需要联网下载；启动后需自行构建验证） -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
     <!-- Test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

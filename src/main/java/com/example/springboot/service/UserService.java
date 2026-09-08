@@ -9,16 +9,20 @@ import com.example.springboot.exception.BusinessException;
 import com.example.springboot.mapper.RoleMapper;
 import com.example.springboot.mapper.UserMapper;
 import com.example.springboot.utils.JwtUtil;
+import com.example.springboot.utils.RedisKeys;
 import com.example.springboot.vo.login.LoginUserVO;
 import com.example.springboot.vo.user.UserQueryDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 用户服务：登录/注册、用户 CRUD、用户角色分配、当前登录用户信息
@@ -34,15 +38,22 @@ public class UserService {
     private final RoleMapper roleMapper;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
+    private final StringRedisTemplate redisTemplate;
+
+    /** token 有效期（毫秒），与 JwtUtil 共用 yml 里的 jwt.expiration */
+    @Value("${jwt.expiration:86400000}")
+    private long jwtExpirationMs;
 
     public UserService(UserMapper userMapper,
                        RoleMapper roleMapper,
                        PasswordEncoder passwordEncoder,
-                       JwtUtil jwtUtil) {
+                       JwtUtil jwtUtil,
+                       StringRedisTemplate redisTemplate) {
         this.userMapper = userMapper;
         this.roleMapper = roleMapper;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
+        this.redisTemplate = redisTemplate;
     }
 
     /* ---------------- 认证 ---------------- */
@@ -59,10 +70,40 @@ public class UserService {
 
         String token = jwtUtil.generateToken(user.getUserId(), user.getUserName());
 
+        // 单点登录：把最新 token 写入 Redis，自动覆盖旧 token（实现“同一账号只能一个地方登录”）
+        saveLoginToken(user.getUserId(), token);
+
         AuthController.LoginVO vo = new AuthController.LoginVO();
         vo.setToken(token);
         vo.setUser(user);
         return vo;
+    }
+
+    /** 退出登录：删除 Redis 登录态，当前 token 立即失效 */
+    public void logout(Long userId) {
+        try {
+            redisTemplate.delete(RedisKeys.loginToken(userId));
+            log.info("用户退出登录: userId={}", userId);
+        } catch (Exception e) {
+            log.warn("删除 Redis 登录态失败: userId={}, error={}", userId, e.getMessage());
+        }
+    }
+
+    /** 登录后把 token 写入 Redis（TTL 与 token 有效期一致） */
+    private void saveLoginToken(Long userId, String token) {
+        long expireSeconds = Math.max(1, jwtExpirationMs / 1000);
+        try {
+            redisTemplate.opsForValue().set(
+                    RedisKeys.loginToken(userId),
+                    token,
+                    expireSeconds,
+                    TimeUnit.SECONDS
+            );
+            log.info("登录成功，已写入 Redis 登录态: userId={}", userId);
+        } catch (Exception e) {
+            // Redis 不可用时不阻断登录（开发期方便）；生产可改为抛异常
+            log.warn("写入 Redis 登录态失败（不影响本次登录）: userId={}, error={}", userId, e.getMessage());
+        }
     }
 
     @Operation(summary = "注册")
@@ -177,12 +218,13 @@ public class UserService {
         }
     }
 
-    /** 删除用户（逻辑删除 + 清理其角色关联） */
+    /** 删除用户（逻辑删除 + 清理其角色关联 + 清除登录态） */
     public void deleteUser(Long userId) {
         if (userMapper.deleteByUserId(userId) == 0) {
             throw new BusinessException(404, "用户不存在");
         }
         roleMapper.deleteUserRoleByUserId(userId);
+        logout(userId);
     }
 
     /* ---------------- 用户-角色 ---------------- */

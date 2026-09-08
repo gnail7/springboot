@@ -16,6 +16,13 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      # password:  # 本机无密码；有密码再打开
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
 
