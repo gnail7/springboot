@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 认证接口：登录 / 注册 / 获取当前登录用户
+ * 认证接口：登录 / 注册 / 退出 / 获取当前登录用户
  */
 @RestController
 @Tag(name = "认证管理")
@@ -41,6 +41,13 @@ public class AuthController {
     @PostMapping("/register")
     public Result<Void> register(@RequestBody @Valid RegisterDTO dto) {
         this.userService.register(dto);
+        return Result.success();
+    }
+
+    @Operation(summary = "退出登录", description = "清除 Redis 登录态，当前 token 立即失效")
+    @PostMapping("/logout")
+    public Result<Void> logout(@RequestAttribute("userId") Long userId) {
+        this.userService.logout(userId);
         return Result.success();
     }
 
