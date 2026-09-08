@@ -2,6 +2,7 @@ package com.example.springboot.exception;
 
 import com.example.springboot.utils.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -36,6 +37,15 @@ public class GlobalExceptionHandler {
                 : e.getMessage();
         log.warn("参数校验失败: {}", message);
         return Result.error(400, message);
+    }
+
+    /**
+     * 无权限：@PreAuthorize 方法级鉴权校验不通过时抛出 → 403
+     */
+    @ExceptionHandler(AccessDeniedException.class)
+    public Result<Void> handleAccessDeniedException(AccessDeniedException e) {
+        log.warn("无权限访问: {}", e.getMessage());
+        return Result.error(403, "无权限访问");
     }
 
     /**

@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,30 +38,35 @@ public class UserController {
     }
 
     @Operation(summary = "分页查询用户")
+    @PreAuthorize("@permissionService.hasPerm('system:user:list')")
     @GetMapping("/page")
     public PageResult<User> page(UserQueryDTO dto) {
         return userService.page(dto);
     }
 
     @Operation(summary = "用户详情")
+    @PreAuthorize("@permissionService.hasPerm('system:user:list')")
     @GetMapping("/{userId}")
     public Result<User> get(@PathVariable Long userId) {
         return Result.success(userService.getById(userId));
     }
 
     @Operation(summary = "查询用户已分配的角色")
+    @PreAuthorize("@permissionService.hasPerm('system:user:list')")
     @GetMapping("/{userId}/roles")
     public Result<List<Role>> roles(@PathVariable Long userId) {
         return Result.success(userService.getUserRoles(userId));
     }
 
     @Operation(summary = "新增用户")
+    @PreAuthorize("@permissionService.hasPerm('system:user:add')")
     @PostMapping
     public Result<Long> create(@RequestBody User user) {
         return Result.success(userService.createUser(user));
     }
 
     @Operation(summary = "修改用户（不含密码）")
+    @PreAuthorize("@permissionService.hasPerm('system:user:edit')")
     @PutMapping("/{userId}")
     public Result<Void> update(@PathVariable Long userId, @RequestBody User user) {
         user.setUserId(userId);
@@ -69,6 +75,7 @@ public class UserController {
     }
 
     @Operation(summary = "重置密码")
+    @PreAuthorize("@permissionService.hasPerm('system:user:resetPwd')")
     @PutMapping("/{userId}/password")
     public Result<Void> resetPassword(@PathVariable Long userId,
                                       @RequestBody @Valid PasswordDTO dto) {
@@ -77,6 +84,7 @@ public class UserController {
     }
 
     @Operation(summary = "给用户分配角色（覆盖式）")
+    @PreAuthorize("@permissionService.hasPerm('system:user:assign')")
     @PutMapping("/{userId}/roles")
     public Result<Void> assignRoles(@PathVariable Long userId,
                                     @RequestBody List<Long> roleIds) {
@@ -85,6 +93,7 @@ public class UserController {
     }
 
     @Operation(summary = "删除用户（逻辑删除）")
+    @PreAuthorize("@permissionService.hasPerm('system:user:remove')")
     @DeleteMapping("/{userId}")
     public Result<Void> delete(@PathVariable Long userId) {
         userService.deleteUser(userId);
