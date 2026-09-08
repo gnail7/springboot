@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot.mapper.BlogPostMapper">
+
+    <sql id="postColumns">
+        p.post_id        AS postId,
+        p.category_id    AS categoryId,
+        p.author_id      AS authorId,
+        p.title,
+        p.slug,
+        p.summary,
+        p.content,
+        p.cover,
+        p.status,
+        p.is_top         AS isTop,
+        p.is_recommend   AS isRecommend,
+        p.view_count     AS viewCount,
+        p.like_count     AS likeCount,
+        p.comment_count  AS commentCount,
+        p.word_count     AS wordCount,
+        p.published_time AS publishedTime,
+        p.del_flag       AS delFlag,
+        p.create_by      AS createBy,
+        p.create_time    AS createTime,
+        p.update_by      AS updateBy,
+        p.update_time    AS updateTime,
+        p.remark,
+        c.category_name  AS categoryName
+    </sql>
+
+    <!-- 分页查询（联表带出分类名称） -->
+    <select id="page" resultType="com.example.springboot.entity.BlogPost">
+        SELECT
+        <include refid="postColumns"/>
+        FROM blog_post p
+        LEFT JOIN blog_category c ON c.category_id = p.category_id
+        <where>
+            p.del_flag = '0'
+            <if test="title != null and title != ''">
+                AND p.title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="categoryId != null">
+                AND p.category_id = #{categoryId}
+            </if>
+            <if test="status != null and status != ''">
+                AND p.status = #{status}
+            </if>
+        </where>
+        ORDER BY p.is_top DESC, p.published_time DESC, p.post_id DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="long">
+        SELECT COUNT(*)
+        FROM blog_post p
+        <where>
+            p.del_flag = '0'
+            <if test="title != null and title != ''">
+                AND p.title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <if test="categoryId != null">
+                AND p.category_id = #{categoryId}
+            </if>
+            <if test="status != null and status != ''">
+                AND p.status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!-- 详情（带分类名称） -->
+    <select id="selectDetail" resultType="com.example.springboot.entity.BlogPost">
+        SELECT
+        <include refid="postColumns"/>
+        FROM blog_post p
+        LEFT JOIN blog_category c ON c.category_id = p.category_id
+        WHERE p.post_id = #{postId}
+          AND p.del_flag = '0'
+    </select>
+
+    <select id="selectTagIdsByPostId" resultType="long">
+        SELECT tag_id FROM blog_post_tag WHERE post_id = #{postId}
+    </select>
+
+    <insert id="insertPostTag">
+        INSERT INTO blog_post_tag (post_id, tag_id)
+        VALUES
+        <foreach collection="tagIds" item="tid" separator=",">
+            (#{postId}, #{tid})
+        </foreach>
+    </insert>
+
+    <delete id="deletePostTagByPostId">
+        DELETE FROM blog_post_tag WHERE post_id = #{postId}
+    </delete>
+
+    <select id="countPostByTagId" resultType="long">
+        SELECT COUNT(*) FROM blog_post_tag WHERE tag_id = #{tagId}
+    </select>
+
+    <!-- ==================== 公开只读（仅已发布） ==================== -->
+
+    <sql id="publicWhere">
+        p.del_flag = '0'
+        AND p.status = '1'
+        <if test="categoryId != null">
+            AND p.category_id = #{categoryId}
+        </if>
+        <if test="tagId != null">
+            AND EXISTS (SELECT 1 FROM blog_post_tag bpt WHERE bpt.post_id = p.post_id AND bpt.tag_id = #{tagId})
+        </if>
+        <if test="keyword != null and keyword != ''">
+            AND (p.title LIKE CONCAT('%', #{keyword}, '%')
+                 OR p.summary LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+    </sql>
+
+    <select id="selectPublicPage" resultType="com.example.springboot.entity.BlogPost">
+        SELECT
+        <include refid="postColumns"/>
+        FROM blog_post p
+        LEFT JOIN blog_category c ON c.category_id = p.category_id
+        <where>
+            <include refid="publicWhere"/>
+        </where>
+        ORDER BY p.is_top DESC, p.published_time DESC, p.post_id DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="countPublic" resultType="long">
+        SELECT COUNT(*)
+        FROM blog_post p
+        <where>
+            <include refid="publicWhere"/>
+        </where>
+    </select>
+
+    <select id="selectPublicDetail" resultType="com.example.springboot.entity.BlogPost">
+        SELECT
+        <include refid="postColumns"/>
+        FROM blog_post p
+        LEFT JOIN blog_category c ON c.category_id = p.category_id
+        WHERE p.post_id = #{postId}
+          AND p.del_flag = '0'
+          AND p.status = '1'
+    </select>
+
+</mapper>

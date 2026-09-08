@@ -53,7 +53,9 @@ public class WebConfig implements WebMvcConfigurer {
                 // 登录/注册接口本身不需要 token
                 .excludePathPatterns(
                         "/api/auth/login",
-                        "/api/auth/register"
+                        "/api/auth/register",
+                        // 博客公开只读接口无需登录
+                        "/api/blog/public/**"
                 );
     }
 }
