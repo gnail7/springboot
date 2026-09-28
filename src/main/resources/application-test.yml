@@ -1,0 +1,20 @@
+spring:
+  flyway:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.flyway.autoconfigure.FlywayAutoConfiguration
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+mall:
+  order:
+    expire-minutes: 30
+  cache:
+    product-ttl: 10m
+  message:
+    outbox-batch-size: 100
+  job:
+    fixed-delay-ms: 60000
