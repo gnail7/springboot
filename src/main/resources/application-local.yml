@@ -21,7 +21,9 @@ spring:
         prefetch: 20
   flyway:
     enabled: true
-    locations: classpath:db/migration
+    locations:
+      - classpath:db/migration
+      - classpath:db/local
     baseline-on-migrate: true
     baseline-version: 0
 
